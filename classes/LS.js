@@ -16,15 +16,20 @@ class LS {
 
 	addTask(task) {
 		// set data to the LS
-		let tasks;
-		if (localStorage.getItem('tasks') === null) {
-			tasks = [];
-		} else {
-			tasks = JSON.parse(localStorage.getItem('tasks'));
-		}
+		let tasks = this.getData('tasks');
 		tasks.push(task);
-		localStorage.setItem('tasks', JSON.stringify(tasks));
+		this.setData('tasks', tasks);
 		// log to console
 		task.addedToLS();
+	}
+
+	delTask(task) {
+		let tasks = this.getData('tasks');
+		tasks.forEach(function(tasksElement, tasksIndex) {
+			if (tasksElement.name === task) {
+				tasks.splice(tasksIndex, 1);
+			}
+		});
+		this.setData('tasks', tasks);
 	}
 }

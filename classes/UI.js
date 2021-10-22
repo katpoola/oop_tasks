@@ -20,4 +20,13 @@ class UI {
 		// log to condole
 		task.addedToUI();
 	}
+
+	delTask(task) {
+		const delIcon = task.nextSibling;
+		if (delIcon.textContent == "X") {
+			if (confirm('Do you want to delete this task?')) {
+				task.parentElement.remove();
+			}
+		}
+	}
 }
