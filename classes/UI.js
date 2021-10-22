@@ -1,4 +1,5 @@
 class UI {
+	
 	// help function to add DOM element
 	addUIelement(elementname, classname = '', textcontent = '', atributes = {}) {
 		const element = document.createElement(elementname);
