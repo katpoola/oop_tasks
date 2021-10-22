@@ -14,6 +14,9 @@ taskList.addEventListener('click', delTask);
 const clearBtn = document.querySelector('#clear');
 clearBtn.addEventListener('click', delTasks);
 
+// page reload
+document.addEventListener('DOMContentLoaded', getTasks);
+
 //form submit event
 form.addEventListener('submit', addTask);
 
@@ -44,4 +47,11 @@ function delTasks(e) {
 	ui.delTasks(tasks);
 	// delete tasks from LS
 	ls.delTasks();
+}
+
+function getTasks(e) {
+	// get tasks from LS by this name
+	tasks = ls.getData('tasks');
+	// create task list by UI
+	ui.getTasks(tasks);
 }
