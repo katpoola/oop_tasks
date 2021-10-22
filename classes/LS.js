@@ -32,4 +32,8 @@ class LS {
 		});
 		this.setData('tasks', tasks);
 	}
+
+	delTasks() {
+		localStorage.clear();
+	}
 }

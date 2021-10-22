@@ -10,6 +10,10 @@ const taskInput = document.querySelector('#task');
 const taskList = document.querySelector('ul');
 taskList.addEventListener('click', delTask);
 
+// clear button event
+const clearBtn = document.querySelector('#clear');
+clearBtn.addEventListener('click', delTasks);
+
 //form submit event
 form.addEventListener('submit', addTask);
 
@@ -32,4 +36,12 @@ function delTask(e) {
 	task = task.textContent;
 	// delete task value from LS by LS object 
 	ls.delTask(task);
+}
+
+function delTasks(e) {
+	// delete all tasks from UI
+	let tasks = document.querySelector('ul');
+	ui.delTasks(tasks);
+	// delete tasks from LS
+	ls.delTasks();
 }
